@@ -10,9 +10,11 @@ public class Main {
     public static void main(String[] args) {
         try {
             DataOutputStream outStream = new DataOutputStream(new FileOutputStream(OUT_FILE));
-            Oscillator osc = new Oscillator(Oscillator.Type.TRIANGLE, new ConstNode(440), new ConstNode(0.1), new ConstNode(0));
+            Module pitch = new Oscillator(Oscillator.Type.SAWTOOTH, 0.5, 500, 500);
+            Module osc = new Oscillator(Oscillator.Type.SINE, pitch.get(), new ConstNode(0.2), new ConstNode(0));
+            Module filt = new HPF(osc.get(), 500, 801, Filter.Window.BLACKMAN);
             for (int i = 0; i < Time.LENGTH; i++) {
-                double sample = osc.get().update(i).get();
+                double sample = filt.get().update(i).get();
                 outStream.writeDouble(sample);
             }
             outStream.close();

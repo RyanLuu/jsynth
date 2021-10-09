@@ -22,6 +22,18 @@ public class Oscillator extends Module {
         this.angle = 0;
     }
 
+    public Oscillator(Type type, InputNode frequency) {
+        this(type, frequency, new ConstNode(1), new ConstNode(0));
+    }
+
+    public Oscillator(Type type, double frequency, double amplitude, double offset) {
+        this(type, new ConstNode(frequency), new ConstNode(amplitude), new ConstNode(offset));
+    }
+
+    public Oscillator(Type type, double frequency) {
+        this(type, new ConstNode(frequency), new ConstNode(1), new ConstNode(0));
+    }
+
     @Override
     public double[] compute(double[] inputs) {
         this.angle += (2 * Math.PI * inputs[0] / Time.SAMPLE_RATE);
