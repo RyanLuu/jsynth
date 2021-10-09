@@ -5,7 +5,7 @@ public class HPF extends Filter {
     public HPF(InputNode input, double cutoff, int width, Window window) {
         super(input, width, window);
         this.cutoff = cutoff / Time.SAMPLE_RATE;
-   }
+    }
 
     @Override
     public void buildFilter() {
@@ -20,9 +20,9 @@ public class HPF extends Filter {
         }
         for (int i = 0; i < width; i++) {
             filter[i] /= sum;
-            filter[i] = -filter[i];
+            filter[i] *= -1;
         }
-        filter[(width - 1) / 2] += 1;
+        filter[(width - 1) / 2]++;
     }
 
 }

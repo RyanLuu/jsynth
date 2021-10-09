@@ -5,7 +5,7 @@ public class LPF extends Filter {
     public LPF(InputNode input, double cutoff, int width, Window window) {
         super(input, width, window);
         this.cutoff = cutoff / Time.SAMPLE_RATE;
-   }
+    }
 
     @Override
     public void buildFilter() {
