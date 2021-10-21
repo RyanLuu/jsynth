@@ -5,6 +5,7 @@ public class OutputNode extends InputNode {
     
     public OutputNode(Module module) {
         this.module = module;
+        this.sample = 0;
     }
 
     public void set(double value) {
@@ -13,8 +14,8 @@ public class OutputNode extends InputNode {
 
     @Override
     public InputNode update(int sample) {
-        while (this.sample < sample) {
-            module.update(this.sample++);
+        while (this.sample <= sample) {
+            this.module.update(this.sample++);
         }
         return this;
     }

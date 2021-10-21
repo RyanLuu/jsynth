@@ -7,7 +7,7 @@ public class Time {
 
     public static double TEMPO = 120;  // beats per minute
     public static double TEMPO_HZ = TEMPO / 60;
-    public static int TIME_SIGNATURE = 4;  // beats per measure
+    public static int TIME_SIGNATURE = 3;  // beats per measure
     public static double BEAT = MINUTE / TEMPO;
     public static int MEASURES = 4;
     public static double LENGTH_IN_SAMPLES = MEASURES * TIME_SIGNATURE * BEAT;
