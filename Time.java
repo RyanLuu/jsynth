@@ -10,5 +10,5 @@ public class Time {
     public static int TIME_SIGNATURE = 4;  // beats per measure
     public static double BEAT = MINUTE / TEMPO;
     public static int MEASURES = 4;
-    public static double LENGTH = MEASURES * TIME_SIGNATURE * BEAT;
+    public static double LENGTH_IN_SAMPLES = MEASURES * TIME_SIGNATURE * BEAT;
 }
